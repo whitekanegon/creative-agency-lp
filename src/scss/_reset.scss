@@ -1,19 +1,11 @@
 @use 'mixins' as *;
 
-html {
-  font-size: 62.5%;
-}
-
 body {
   margin: 0;
   @include font_sans;
-  font-size: 1.8rem;
-  line-height: 1.45;
-  letter-spacing: 0.018rem;
-
-  @include tb {
-    font-size: 1.6rem;
-  }
+  font-size: var(--font-size-body);
+  line-height: var(--font-size-body-line);
+  font-weight: var(--font-weight-regular);
 }
 
 h1,
@@ -22,38 +14,25 @@ h2 {
 }
 
 h1 {
-  font-size: 5.6rem;
-  letter-spacing: -0.168rem;
-  margin: 3.2rem 0;
+  font-size: var(--font-size-hero);
+  line-height: var(--font-size-hero-line);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin: 0;
 
-  @include tb {
-    font-size: 3.6rem;
-    margin: 2rem 0;
+  @include sp {
+    font-size: var(--font-size-hero-sp);
+    line-height: var(--font-size-hero-line-sp);
   }
 }
 
 h2 {
-  font-size: 2.4rem;
-  line-height: 1.18;
-  letter-spacing: -0.024rem;
-  margin: 0 0 0.8rem;
-
-  @include tb {
-    font-size: 2rem;
-  }
+  font-size: var(--font-size-section-title);
+  line-height: var(--font-size-section-title-line);
+  font-weight: var(--font-weight-medium);
+  margin: 0;
 }
 
 p {
   margin: 0;
-}
-
-code {
-  @include font_mono;
-  display: inline-flex;
-  border-radius: 0.4rem;
-  color: var(--color-text-h);
-  font-size: 1.5rem;
-  line-height: 1.35;
-  padding: 0.4rem 0.8rem;
-  background: var(--color-code-bg);
 }

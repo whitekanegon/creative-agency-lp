@@ -1,12 +1,14 @@
-// 1rem = 10px（html の 62.5%）を前提に、px 指定を流体サイズへ変換する
-@function clp($min, $max, $min-vw: 375, $max-vw: 1440) {
-  $slope: ($max - $min) / ($max-vw - $min-vw);
+@use 'sass:math';
 
-  @return clamp(
-    #{$min / 10}rem,
-    #{$min / 10 - $min-vw * $slope / 10}rem + #{$slope * 100}vw,
-    #{$max / 10}rem
-  );
+@function rem($px) {
+  @return math.div($px, 16) * 1rem;
+}
+
+@function clp($min, $max, $min-vw: 375, $max-vw: 1440) {
+  $slope: math.div($max - $min, $max-vw - $min-vw);
+  $intercept-px: $min - $min-vw * $slope;
+
+  @return clamp(#{rem($min)}, #{rem($intercept-px)} + #{$slope * 100}vw, #{rem($max)});
 }
 
 @mixin sp {
@@ -39,8 +41,8 @@
 
 @mixin font_heading {
   font-family: var(--font-heading);
-  font-weight: 500;
-  color: var(--color-text-h);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
 }
 
 @mixin font_mono {
