@@ -1,0 +1,48 @@
+// 1rem = 10px（html の 62.5%）を前提に、px 指定を流体サイズへ変換する
+@function clp($min, $max, $min-vw: 375, $max-vw: 1440) {
+  $slope: ($max - $min) / ($max-vw - $min-vw);
+
+  @return clamp(
+    #{$min / 10}rem,
+    #{$min / 10 - $min-vw * $slope / 10}rem + #{$slope * 100}vw,
+    #{$max / 10}rem
+  );
+}
+
+@mixin sp {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin tb {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin pc {
+  @media (min-width: 1025px) {
+    @content;
+  }
+}
+
+@mixin prefers-dark {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+}
+
+@mixin font_sans {
+  font-family: var(--font-sans);
+}
+
+@mixin font_heading {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  color: var(--color-text-h);
+}
+
+@mixin font_mono {
+  font-family: var(--font-mono);
+}

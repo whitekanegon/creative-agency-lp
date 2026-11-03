@@ -1,0 +1,150 @@
+@use '../mixins' as *;
+
+#app {
+  width: 112.6rem;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  border-inline: 0.1rem solid var(--color-border);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+#center {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  place-content: center;
+  place-items: center;
+  flex-grow: 1;
+
+  @include tb {
+    padding: 3.2rem 2rem 2.4rem;
+    gap: 1.8rem;
+  }
+}
+
+#next-steps {
+  display: flex;
+  border-top: 0.1rem solid var(--color-border);
+  text-align: left;
+
+  & > div {
+    flex: 1 1 0;
+    padding: 3.2rem;
+
+    @include tb {
+      padding: 2.4rem 2rem;
+    }
+  }
+
+  .icon {
+    margin-bottom: 1.6rem;
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  @include tb {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 0.8rem;
+    margin: 3.2rem 0 0;
+
+    .logo {
+      height: 1.8rem;
+    }
+
+    a {
+      color: var(--color-text-h);
+      font-size: 1.6rem;
+      border-radius: 0.6rem;
+      background: var(--color-social-bg);
+      display: flex;
+      padding: 0.6rem 1.2rem;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+      transition: box-shadow 0.3s;
+
+      &:hover {
+        box-shadow: var(--shadow);
+      }
+
+      .button-icon {
+        height: 1.8rem;
+        width: 1.8rem;
+      }
+    }
+
+    @include tb {
+      margin-top: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      li {
+        flex: 1 1 calc(50% - 0.8rem);
+      }
+
+      a {
+        width: 100%;
+        justify-content: center;
+        box-sizing: border-box;
+      }
+    }
+  }
+}
+
+#docs {
+  border-right: 0.1rem solid var(--color-border);
+
+  @include tb {
+    border-right: none;
+    border-bottom: 0.1rem solid var(--color-border);
+  }
+}
+
+#spacer {
+  height: 8.8rem;
+  border-top: 0.1rem solid var(--color-border);
+
+  @include tb {
+    height: 4.8rem;
+  }
+}
+
+.ticks {
+  position: relative;
+  width: 100%;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: -0.45rem;
+    border: 0.5rem solid transparent;
+  }
+
+  &::before {
+    left: 0;
+    border-left-color: var(--color-border);
+  }
+
+  &::after {
+    right: 0;
+    border-right-color: var(--color-border);
+  }
+}
+
+@include prefers-dark {
+  #social .button-icon {
+    filter: invert(1) brightness(2);
+  }
+}

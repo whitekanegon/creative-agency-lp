@@ -1,0 +1,23 @@
+@use '../mixins' as *;
+
+.counter {
+  @include font_mono;
+  display: inline-flex;
+  font-size: 1.6rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  color: var(--color-accent);
+  background: var(--color-accent-bg);
+  border: 0.2rem solid transparent;
+  transition: border-color 0.3s;
+  margin-bottom: 2.4rem;
+
+  &:hover {
+    border-color: var(--color-accent-border);
+  }
+
+  &:focus-visible {
+    outline: 0.2rem solid var(--color-accent);
+    outline-offset: 0.2rem;
+  }
+}
