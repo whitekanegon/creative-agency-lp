@@ -83,6 +83,7 @@
     line-height: 1.3;
     text-align: start;
     cursor: pointer;
+    @include transition-hover;
 
     &:hover {
       color: var(--color-text-muted-on-dark);
@@ -116,7 +117,10 @@
     height: rem(24);
     stroke: var(--color-text-on-dark);
     color: var(--color-text-on-dark);
-    transition: transform 0.3s ease;
+    transition:
+      transform var(--transition-hover),
+      color var(--transition-hover),
+      stroke var(--transition-hover);
   }
 
   &__item--open &__icon {

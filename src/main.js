@@ -28,6 +28,15 @@ if (header && menuToggle && menuLabel) {
       closeMenu()
     }
   })
+
+  const mainNav = document.getElementById('main-nav')
+  mainNav?.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const href = link.getAttribute('href')
+      if (!href || href === '#') return
+      closeMenu()
+    })
+  })
 }
 
 const servicesAccordion = document.querySelector('.services__accordion')

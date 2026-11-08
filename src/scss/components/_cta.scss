@@ -103,6 +103,7 @@
     text-decoration: none;
     text-align: center;
     white-space: nowrap;
+    @include transition-hover;
 
     @media (min-width: 768px) {
       width: rem(246);

@@ -51,6 +51,9 @@
   --container-padding-x-footer: #{rem(260)};
   --container-padding-x-sp: #{rem(30)};
 
+  /* Interaction */
+  --transition-hover: 0.3s ease;
+
   color: var(--color-text);
   background: var(--color-bg);
   font-synthesis: none;

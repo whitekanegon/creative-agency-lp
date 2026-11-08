@@ -48,3 +48,12 @@
 @mixin font_mono {
   font-family: var(--font-mono);
 }
+
+@mixin transition-hover {
+  transition:
+    color var(--transition-hover),
+    background-color var(--transition-hover),
+    opacity var(--transition-hover),
+    filter var(--transition-hover),
+    text-decoration-color var(--transition-hover);
+}

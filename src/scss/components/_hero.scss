@@ -137,6 +137,7 @@
     line-height: 1.2;
     text-decoration: none;
     white-space: nowrap;
+    @include transition-hover;
 
     &:hover {
       background-color: var(--color-sub);
