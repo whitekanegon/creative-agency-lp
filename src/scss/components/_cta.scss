@@ -1,0 +1,122 @@
+@use '../mixins' as *;
+
+.cta {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  box-sizing: border-box;
+  background-color: var(--color-sub);
+  color: var(--color-text-on-dark);
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: clp(24, 40, 375, 1728);
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-block: clp(60, 120, 375, 1728);
+    padding-inline: clp(30, 120, 375, 1728);
+    min-width: 0;
+    box-sizing: border-box;
+
+    @include sp {
+      padding-block-end: clp(60, 80, 375, 767);
+    }
+
+    @media (min-width: 1024px) {
+      display: grid;
+      grid-template-columns: minmax(0, max-content) minmax(0, 1fr);
+      column-gap: clp(48, 120, 1024, 1728);
+      row-gap: 0;
+      align-items: start;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: var(--font-size-label);
+    font-weight: var(--font-weight-regular);
+    line-height: 1.4;
+    color: var(--color-text-on-dark);
+
+    @media (min-width: 1024px) {
+      grid-column: 1;
+      grid-row: 1;
+      padding-block-start: rem(14);
+      white-space: nowrap;
+    }
+  }
+
+  @include sp {
+    margin-block-end: 0;
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clp(32, 50, 375, 1728);
+    width: 100%;
+    min-width: 0;
+
+    @media (min-width: 1024px) {
+      grid-column: 2;
+      grid-row: 1;
+    }
+  }
+
+  &__message {
+    margin: 0;
+    max-width: 100%;
+    font-family: var(--font-heading);
+    font-size: clp(28, 40, 375, 1728);
+    font-weight: var(--font-weight-medium);
+    line-height: clp(38, 60, 375, 1728);
+    color: var(--color-text-on-dark);
+
+    @include sp {
+      font-size: var(--font-size-section-title);
+      line-height: var(--font-size-hero-line-sp);
+      letter-spacing: var(--letter-spacing-heading);
+    }
+  }
+
+  &__button {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    min-height: rem(66);
+    padding: rem(11) rem(24);
+    border: rem(2) solid transparent;
+    border-radius: rem(11);
+    background-color: var(--color-bg);
+    color: var(--color-sub);
+    font-family: var(--font-button);
+    font-size: var(--font-size-button-cta);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+
+    @media (min-width: 768px) {
+      width: rem(246);
+      max-width: none;
+    }
+
+    &:hover {
+      background-color: var(--color-text-on-dark);
+      color: var(--color-sub);
+    }
+
+    &:focus-visible {
+      outline: rem(2) solid var(--color-text-on-dark);
+      outline-offset: rem(4);
+    }
+  }
+}

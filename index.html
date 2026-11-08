@@ -13,7 +13,652 @@
     <title>Creativo | Creative Agency</title>
   </head>
   <body>
-    <div id="app"></div>
+    <header class="header">
+      <div class="header__inner">
+        <a class="header__logo" href="#">
+          <img
+            class="header__logo-mark"
+            src="/src/assets/icons/logo-mark.svg"
+            width="29"
+            height="28"
+            alt=""
+          />
+          <span class="header__logo-text">Creativo.</span>
+        </a>
+
+        <button
+          class="header__menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="main-nav"
+        >
+          <span class="header__menu-toggle-label">Open menu</span>
+          <span class="header__menu-icon" aria-hidden="true">
+            <span class="header__menu-bar"></span>
+            <span class="header__menu-bar"></span>
+            <span class="header__menu-bar"></span>
+          </span>
+        </button>
+
+        <nav class="nav" id="main-nav" aria-label="Main">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a class="nav__link nav__link--current" href="#" aria-current="page">Home</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#about">About Us</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#portfolio">Portfolio</a>
+            </li>
+            <li class="nav__item nav__item--cta">
+              <a class="nav__cta" href="#contact">GET IN TOUCH</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="app">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__inner">
+          <div class="hero__content">
+            <div class="hero__heading">
+              <span class="hero__bar" aria-hidden="true"></span>
+              <h1 id="hero-title" class="hero__title">
+                Where<br />
+                Design Meets Innovation!
+              </h1>
+            </div>
+            <div class="hero__body">
+              <p class="hero__lead">
+                Whether you&apos;re a startup looking to establish your brand identity or an
+                established business aiming to refresh your image, we&apos;ve got the creative
+                firepower to make it happen.
+              </p>
+              <a class="hero__cta" href="#contact">LET&apos;S TALK</a>
+            </div>
+          </div>
+          <figure class="hero__figure">
+            <img
+              class="hero__image"
+              src="/src/assets/images/hero-illustration.svg"
+              width="775"
+              height="500"
+              fetchpriority="high"
+              alt=""
+            />
+          </figure>
+        </div>
+      </section>
+
+      <section class="services" aria-labelledby="services-title">
+        <div class="services__inner">
+          <h2 id="services-title" class="services__title">Our Services</h2>
+
+          <div class="services__accordion">
+            <div class="services__item services__item--open">
+              <h3 class="services__heading">
+                <button
+                  type="button"
+                  class="services__trigger"
+                  id="services-trigger-visual-branding"
+                  aria-expanded="true"
+                  aria-controls="services-panel-visual-branding"
+                >
+                  <span class="services__trigger-label">Visual Branding</span>
+                  <svg
+                    class="services__icon"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+              </h3>
+              <div
+                id="services-panel-visual-branding"
+                class="services__panel"
+                role="region"
+                aria-labelledby="services-trigger-visual-branding"
+              >
+                <div class="services__panel-inner">
+                  <p class="services__text">
+                    Elevate your brand with visually compelling designs that leave a lasting
+                    impression. From logos to comprehensive brand guidelines, we craft identities
+                    that resonate with your audience and set you apart.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="services__item">
+              <h3 class="services__heading">
+                <button
+                  type="button"
+                  class="services__trigger"
+                  id="services-trigger-creative-campaign"
+                  aria-expanded="false"
+                  aria-controls="services-panel-creative-campaign"
+                >
+                  <span class="services__trigger-label">Creative Campaign</span>
+                  <svg
+                    class="services__icon"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+              </h3>
+              <div
+                id="services-panel-creative-campaign"
+                class="services__panel"
+                role="region"
+                aria-labelledby="services-trigger-creative-campaign"
+                hidden
+              >
+                <div class="services__panel-inner">
+                  <p class="services__text">
+                    From concept to launch, we design memorable campaigns that capture attention,
+                    tell your story, and drive meaningful engagement across every channel.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="services__item">
+              <h3 class="services__heading">
+                <button
+                  type="button"
+                  class="services__trigger"
+                  id="services-trigger-ui-ux-design"
+                  aria-expanded="false"
+                  aria-controls="services-panel-ui-ux-design"
+                >
+                  <span class="services__trigger-label">UI/UX Design</span>
+                  <svg
+                    class="services__icon"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+              </h3>
+              <div
+                id="services-panel-ui-ux-design"
+                class="services__panel"
+                role="region"
+                aria-labelledby="services-trigger-ui-ux-design"
+                hidden
+              >
+                <div class="services__panel-inner">
+                  <p class="services__text">
+                    User-centered interfaces that combine beauty with intuitive navigation,
+                    delivering delightful digital experiences that keep people coming back.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="services__item">
+              <h3 class="services__heading">
+                <button
+                  type="button"
+                  class="services__trigger"
+                  id="services-trigger-development"
+                  aria-expanded="false"
+                  aria-controls="services-panel-development"
+                >
+                  <span class="services__trigger-label">Development</span>
+                  <svg
+                    class="services__icon"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+              </h3>
+              <div
+                id="services-panel-development"
+                class="services__panel"
+                role="region"
+                aria-labelledby="services-trigger-development"
+                hidden
+              >
+                <div class="services__panel-inner">
+                  <p class="services__text">
+                    We build fast, scalable digital products with clean code and thoughtful
+                    architecture, turning designs into reliable experiences that grow with your
+                    business.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="portfolio" id="portfolio" aria-labelledby="portfolio-title">
+        <div class="portfolio__inner">
+          <h2 id="portfolio-title" class="portfolio__title">Our Portfolio</h2>
+
+          <div class="portfolio__main">
+            <p class="portfolio__vision">
+              We envision a world where every idea, product, or service is brought to life through
+              exceptional design.
+            </p>
+
+            <ul class="portfolio__list">
+            <li class="portfolio__item">
+              <article class="portfolio-card">
+                <a class="portfolio-card__link" href="#">
+                  <figure class="portfolio-card__figure">
+                    <picture>
+                      <source
+                        media="(max-width: 767px)"
+                        srcset="/src/assets/images/portfolio-card-01-sp.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="/src/assets/images/portfolio-card-01.webp"
+                        type="image/webp"
+                      />
+                      <img
+                        class="portfolio-card__image"
+                        src="/src/assets/images/portfolio-card-01.webp"
+                        width="1234"
+                        height="944"
+                        loading="lazy"
+                        decoding="async"
+                        alt="Daily App productivity dashboard with weather and air quality widgets on a smartphone"
+                      />
+                    </picture>
+                  </figure>
+                  <p class="portfolio-card__caption">
+                    <strong class="portfolio-card__title">Daily App</strong>
+                    <span class="portfolio-card__description">
+                      - Increasing your productivity</span
+                    >
+                  </p>
+                </a>
+              </article>
+            </li>
+            <li class="portfolio__item">
+              <article class="portfolio-card">
+                <a class="portfolio-card__link" href="#">
+                  <figure class="portfolio-card__figure">
+                    <picture>
+                      <source
+                        media="(max-width: 767px)"
+                        srcset="/src/assets/images/portfolio-card-02-sp.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="/src/assets/images/portfolio-card-02.webp"
+                        type="image/webp"
+                      />
+                      <img
+                        class="portfolio-card__image"
+                        src="/src/assets/images/portfolio-card-02.webp"
+                        width="1234"
+                        height="944"
+                        loading="lazy"
+                        decoding="async"
+                        alt="Earthquake live-data monitoring app with dark mode charts on a smartphone"
+                      />
+                    </picture>
+                  </figure>
+                  <p class="portfolio-card__caption">
+                    <strong class="portfolio-card__title">Daily App</strong>
+                    <span class="portfolio-card__description">
+                      - Increasing your productivity</span
+                    >
+                  </p>
+                </a>
+              </article>
+            </li>
+            <li class="portfolio__item">
+              <article class="portfolio-card">
+                <a class="portfolio-card__link" href="#">
+                  <figure class="portfolio-card__figure">
+                    <picture>
+                      <source
+                        media="(max-width: 767px)"
+                        srcset="/src/assets/images/portfolio-card-03-sp.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="/src/assets/images/portfolio-card-03.webp"
+                        type="image/webp"
+                      />
+                      <img
+                        class="portfolio-card__image"
+                        src="/src/assets/images/portfolio-card-03.webp"
+                        width="1234"
+                        height="944"
+                        loading="lazy"
+                        decoding="async"
+                        alt="Basics meditation and learning app with orange theme on a smartphone"
+                      />
+                    </picture>
+                  </figure>
+                  <p class="portfolio-card__caption">
+                    <strong class="portfolio-card__title">Daily App</strong>
+                    <span class="portfolio-card__description">
+                      - Increasing your productivity</span
+                    >
+                  </p>
+                </a>
+              </article>
+            </li>
+            <li class="portfolio__item">
+              <article class="portfolio-card">
+                <a class="portfolio-card__link" href="#">
+                  <figure class="portfolio-card__figure">
+                    <picture>
+                      <source
+                        media="(max-width: 767px)"
+                        srcset="/src/assets/images/portfolio-card-04-sp.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="/src/assets/images/portfolio-card-04.webp"
+                        type="image/webp"
+                      />
+                      <img
+                        class="portfolio-card__image"
+                        src="/src/assets/images/portfolio-card-04.webp"
+                        width="1234"
+                        height="944"
+                        loading="lazy"
+                        decoding="async"
+                        alt="Data visualization app onboarding screen with character illustration"
+                      />
+                    </picture>
+                  </figure>
+                  <p class="portfolio-card__caption">
+                    <strong class="portfolio-card__title">Daily App</strong>
+                    <span class="portfolio-card__description">
+                      - Increasing your productivity</span
+                    >
+                  </p>
+                </a>
+              </article>
+            </li>
+            <li class="portfolio__item">
+              <article class="portfolio-card">
+                <a class="portfolio-card__link" href="#">
+                  <figure class="portfolio-card__figure">
+                    <picture>
+                      <source
+                        media="(max-width: 767px)"
+                        srcset="/src/assets/images/portfolio-card-05-sp.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="/src/assets/images/portfolio-card-05.webp"
+                        type="image/webp"
+                      />
+                      <img
+                        class="portfolio-card__image"
+                        src="/src/assets/images/portfolio-card-05.webp"
+                        width="1234"
+                        height="944"
+                        loading="lazy"
+                        decoding="async"
+                        alt="Classic meditation exercise selection screen on a smartphone on a desk"
+                      />
+                    </picture>
+                  </figure>
+                  <p class="portfolio-card__caption">
+                    <strong class="portfolio-card__title">Daily App</strong>
+                    <span class="portfolio-card__description">
+                      - Increasing your productivity</span
+                    >
+                  </p>
+                </a>
+              </article>
+            </li>
+            <li class="portfolio__item">
+              <article class="portfolio-card">
+                <a class="portfolio-card__link" href="#">
+                  <figure class="portfolio-card__figure">
+                    <picture>
+                      <source
+                        media="(max-width: 767px)"
+                        srcset="/src/assets/images/portfolio-card-06-sp.webp"
+                        type="image/webp"
+                      />
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="/src/assets/images/portfolio-card-06.webp"
+                        type="image/webp"
+                      />
+                      <img
+                        class="portfolio-card__image"
+                        src="/src/assets/images/portfolio-card-06.webp"
+                        width="1234"
+                        height="944"
+                        loading="lazy"
+                        decoding="async"
+                        alt="News and magazine subscription app interface on a smartphone"
+                      />
+                    </picture>
+                  </figure>
+                  <p class="portfolio-card__caption">
+                    <strong class="portfolio-card__title">Daily App</strong>
+                    <span class="portfolio-card__description">
+                      - Increasing your productivity</span
+                    >
+                  </p>
+                </a>
+              </article>
+            </li>
+          </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta" aria-labelledby="cta-title">
+        <div class="cta__inner">
+          <h2 id="cta-title" class="cta__title">Let&apos;s Collaborate</h2>
+
+          <div class="cta__main">
+            <p class="cta__message">
+              Ready to turn your ideas into exceptional designs? Contact us today, and let&apos;s
+              make something amazing together!
+            </p>
+            <a class="cta__button" href="#contact">LET&apos;S TALK</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="contact">
+      <div class="footer__main">
+        <div class="footer__inner">
+          <div class="footer__brand">
+            <a class="footer__logo" href="#">
+              <img
+                class="footer__logo-mark"
+                src="/src/assets/icons/logo-mark-light.svg"
+                width="29"
+                height="28"
+                alt=""
+              />
+              <span class="footer__logo-text">Creativo.</span>
+            </a>
+            <p class="footer__tagline">
+              Creativo is where your imagination and our expertise converge to create design
+              solutions that elevate your brand and set you apart from the competition.
+            </p>
+            <a class="footer__contact-item" href="mailto:hello@creativo.com">hello@creativo.com</a>
+            <a class="footer__contact-item" href="tel:+18001234567">+1-800-123 4567</a>
+          </div>
+
+          <nav class="footer__nav" aria-label="Footer Navigation">
+            <div class="footer__nav-groups">
+              <div class="footer__nav-row">
+                <div class="footer__nav-group">
+                  <h2 class="footer__nav-title">Company</h2>
+                  <ul class="footer__nav-list">
+                    <li class="footer__nav-item">
+                      <a class="footer__nav-link" href="#">About</a>
+                    </li>
+                    <li class="footer__nav-item">
+                      <a class="footer__nav-link" href="#">Services</a>
+                    </li>
+                    <li class="footer__nav-item">
+                      <a class="footer__nav-link" href="#">Careers</a>
+                    </li>
+                    <li class="footer__nav-item">
+                      <a class="footer__nav-link" href="#">Blog</a>
+                    </li>
+                    <li class="footer__nav-item">
+                      <a class="footer__nav-link" href="#">Pricing</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="footer__nav-group">
+                  <h2 class="footer__nav-title">Contact</h2>
+                  <ul class="footer__nav-list">
+                    <li class="footer__nav-item">
+                      <a class="footer__nav-link" href="#">Help</a>
+                    </li>
+                    <li class="footer__nav-item">
+                      <a class="footer__nav-link" href="#">FAQs</a>
+                    </li>
+                    <li class="footer__nav-item">
+                      <a class="footer__nav-link" href="#">Press</a>
+                    </li>
+                    <li class="footer__nav-item">
+                      <a class="footer__nav-link" href="#">Terms &amp; Conditions</a>
+                    </li>
+                    <li class="footer__nav-item">
+                      <a class="footer__nav-link" href="#">Partners</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="footer__nav-group footer__nav-group--discover">
+                <h2 class="footer__nav-title">Discover</h2>
+                <ul class="footer__nav-list">
+                  <li class="footer__nav-item">
+                    <a class="footer__nav-link" href="#">Affiliate</a>
+                  </li>
+                  <li class="footer__nav-item">
+                    <a class="footer__nav-link" href="#">Partner Program</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      <div class="footer__separator" role="presentation"></div>
+
+      <div class="footer__bottom">
+        <div class="footer__bottom-inner">
+          <small class="footer__copyright"
+            >Copyright © 2032 Creativo®. All rights reserved.</small
+          >
+          <ul class="footer__social">
+            <li class="footer__social-item">
+              <a
+                class="footer__social-link"
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Twitter"
+              >
+                <span class="visually-hidden">Twitter</span>
+                <img
+                  class="footer__social-icon"
+                  src="/src/assets/icons/social-twitter.svg"
+                  width="24"
+                  height="24"
+                  alt=""
+                />
+              </a>
+            </li>
+            <li class="footer__social-item">
+              <a
+                class="footer__social-link"
+                href="https://www.linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <span class="visually-hidden">LinkedIn</span>
+                <img
+                  class="footer__social-icon"
+                  src="/src/assets/icons/social-linkedin.svg"
+                  width="24"
+                  height="24"
+                  alt=""
+                />
+              </a>
+            </li>
+            <li class="footer__social-item">
+              <a
+                class="footer__social-link"
+                href="https://www.facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+              >
+                <span class="visually-hidden">Facebook</span>
+                <img
+                  class="footer__social-icon"
+                  src="/src/assets/icons/social-facebook.svg"
+                  width="24"
+                  height="24"
+                  alt=""
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

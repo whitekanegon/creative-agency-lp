@@ -1,3 +1,9 @@
 @use 'mixins';
 @use 'variables';
 @use 'reset';
+@use 'components/header';
+@use 'components/hero';
+@use 'components/services';
+@use 'components/portfolio';
+@use 'components/cta';
+@use 'components/footer';
