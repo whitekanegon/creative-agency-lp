@@ -1,48 +1,48 @@
-# 欧州最高峰基準：フロントエンド開発規約 & 流体レスポンシブ・メディア設計憲法
+# Frontend Development & Modern Fluid Responsive Standards (European High Standard)
 
-## 1. 基本動作モード & 単位計算（WCAG / 欧州アクセシビリティ標準）
-- `src/scss/` を使用する【SCSSモード】で動作すること。
-- `html` のフォントサイズはブラウザ標準（100% / 16px）を厳守し、`font-size: 62.5%` 等の強制変更は厳禁。
-- ピクセル値からremへの換算は `src/scss/_mixins.scss` の `rem($px)` 関数を使用すること（例: `rem(24)` → `1.5rem`）。
-- 流体サイズ・可変値には CSS標準の `clamp()` または流体関数を活用すること。
-- カラー、余白、基本フォントは `:root` に定義されたCSS変数（`var(--color-OO)`）を最優先で使用し、値の直書きを禁止する。
+## 1. Environment & Units (WCAG & Accessibility Standards)
+- Operate in SCSS mode using `src/scss/`.
+- Maintain browser default root font size (`html { font-size: 100%; }` / 16px). Forcing `62.5%` or arbitrary root scaling is strictly prohibited.
+- Convert px to rem using the `rem($px)` function in `src/scss/_mixins.scss` (e.g., `rem(24)` -> `1.5rem`).
+- Utilize standard CSS `clamp()` or fluid functions for scalable typography and dynamic spacing.
+- Prioritize design tokens defined in `:root` (`var(--color-*)`) for colors, spacing, and base fonts. Hardcoded values are strictly forbidden.
 
-## 2. 流体設計 & レスポンシブ堅牢化ルール（横スクロール絶対阻止）
-- **完全な流体追従（No Horizontal Scroll）:**
-  375pxから4Kまで、ブラウザ幅を無段階にリサイズしても一切の横スクロール（水平オーバーフロー）を発生させないこと。
-- **固定ピクセル幅の禁止:**
-  レイアウトブロックに `width: 500px` のような固定幅を与えず、`max-width: 100%` や `minmax(0, 1fr)` を徹底すること。
-- **大画面での間延び防止（Figma最大幅ストッパー）:**
-  Figmaで定義された最大幅（例: `max-width: rem(688)`）には必ず上限ブレーキをかけ、`flex-grow: 1; max-width: none;` による際限のない引き伸ばしを禁止すること。大画面時は意図した位置に美しく留めること。
-- **タブレット中間幅（769px〜1023px）の自律的最適化:**
-  Figmaにタブレット専用カンプが存在しない場合でも、要素の横並びが圧迫された場合は放置せず、カラム間のgapやコンテナ余白の縮小、または無理のない折り返し（2×2化等）を自律的に行い、タイポグラフィとレイアウトの美しさを死守すること。
+## 2. Fluid Design & Robust Responsiveness (Zero Horizontal Overflow)
+- **Seamless Fluid Tracking (No Horizontal Scroll):**
+  Ensure strictly zero horizontal scrolling across all viewport widths from 375px (mobile) to 4K (desktop).
+- **Prohibition of Rigid Fixed Pixel Widths:**
+  Avoid fixed widths (e.g., `width: 500px`) on layout containers. Use `max-width: 100%`, flexbox wrapping, or CSS Grid with `minmax(0, 1fr)`.
+- **Large-screen Restraints (Figma Max-width Constraints):**
+  Apply explicit maximum widths defined in Figma (e.g., `max-width: rem(688)`) to prevent unbounded expansion. Avoid `flex-grow: 1; max-width: none;` on wide displays.
+- **Autonomous Tablet Optimization (769px - 1023px):**
+  Even without dedicated tablet mockups in Figma, dynamically prevent cramped layouts by scaling down gaps/paddings or gracefully wrapping columns (e.g., 2x2 grid) to preserve visual hierarchy.
 
-## 3. 画像最適化 & メディア戦略（Retina対応・WebP・Core Web Vitals）
-- **Figmaからの画像取得（MCP使用時）:**
-  ラスタ画像（写真・イラスト等）を書き出す際は、高精細ディスプレイでのボケを防ぐため原則として Retina対応（scale: 2）のPNGまたはJPGで取得し、可能な場合は最高画質の `.webp` に変換して `src/assets/images/` に配置すること。
-- **pictureタグによる次世代フォーマット＆高解像度配信:**
-  重要なラスタ画像には原則として picture タグを使用し、WebP対応（1x / 2x）とフォールバック（PNG/JPG 1x / 2x）を両立させるセマンティックなマークアップを行うこと。
-  （例: source タグで webp の 1x/2x srcset を指定し、img タグにフォールバック png/jpg の 1x/2x srcset を指定する）
-- **パフォーマンス属性の厳格な使い分け:**
-  - ファーストビュー画像（Heroセクション等）：`loading="lazy"` は【絶対禁止】。代わりに `fetchpriority="high"` を付与してLCP（初期表示）を最速化すること。
-  - スクロール領域の画像（Portfolioセクション等）：`loading="lazy"` および `decoding="async"` を【必須】とし、初期ロードの通信量削減とスクロール時のカクつきを防止すること。
-- **レイアウトシフト（CLS）の完全防止:**
-  全画像に `width` と `height` 属性、またはCSSで `aspect-ratio` を必ず指定し、読み込み前の枠のガタつきを100%防止すること。意味のある `alt` 属性を必ず付与すること。
+## 3. Media Strategy & Performance Optimization (Retina, WebP, Core Web Vitals)
+- **Asset Extraction via Figma MCP:**
+  Export raster images (photos/illustrations) in high resolution (Retina 2x scale: 2) as PNG/JPG, and convert to optimized `.webp` placed in `src/assets/images/`.
+- **Next-Gen Responsive Delivery via picture Tag:**
+  Wrap critical raster images in semantic `<picture>` tags supporting WebP (1x/2x) with proper fallbacks (PNG/JPG 1x/2x):
+  - Example: Provide `<source type="image/webp" srcset="image.webp 1x, image@2x.webp 2x">` with a fallback `<img>`.
+- **Performance Attributes Strategy:**
+  - Above-the-fold (Hero section): `loading="lazy"` is STRICTLY PROHIBITED. Apply `fetchpriority="high"` to optimize LCP.
+  - Below-the-fold (Portfolio section): `loading="lazy"` and `decoding="async"` are MANDATORY to reduce initial payload and eliminate scroll jank.
+- **CLS (Cumulative Layout Shift) Prevention:**
+  Always specify explicit `width` and `height` attributes or CSS `aspect-ratio` on all images to reserve layout space prior to asset load. Meaningful, descriptive `alt` text is required for all informative images.
 
-## 4. タイポグラフィ & 単語保護ルール（英単語破壊改行の禁止）
-- **短いテキストの改行保護:**
-  ナビゲーションリンク、フッターリンク、CTAボタン、タグなどの短い英語フレーズには、原則として `white-space: nowrap;` を適用すること。
-- **英単語の途中改行（ちぎれ）厳禁:**
-  単語の途中で改行されたり（例: "Condition\ns"）、不自然に2行に落ちるレイアウト破綻を絶対に起こさないこと。幅が足りない場合は文字を潰すのではなく、ブロックごと美しく次の行に落とすこと。
+## 4. Typography & Word Wrap Protection
+- **Short UI Text Protection:**
+  Apply `white-space: nowrap;` to short interface elements such as navigation links, footer links, tags, and CTA buttons.
+- **Strict Prohibition of Broken Words:**
+  Prevent mid-word breaks or orphan characters (e.g., "Condition\ns"). If space is constrained, drop the entire block gracefully rather than truncating typography.
 
-## 5. グリッド & カラム配置ルール（均等ピッチの維持）
-- 複数カラム（ナビグループ、カードグリッド等）を並べる際、中身の文字数に引きずられて見出しの開始位置（ピッチ）が不揃いになるのを防ぐため、`repeat(N, 1fr)` などの均等幅グリッド（等幅化）を基本とすること。
+## 5. Grid Architecture (Equal Pitch Columns)
+- For multi-column groups (e.g., navigation columns, card grids), enforce equal-width grids (e.g., `repeat(N, 1fr)`) to maintain consistent heading start alignment regardless of content character length.
 
-## 6. HTMLセマンティクス & アクセシビリティ（a11y / WCAG 2.1 AA）
-- クラス命名は標準的なBEM記法を厳格に適用し、深すぎるネスト（3階層以上）を避けること。
-- セマンティックなHTML5タグ（header, main, section, nav, footer, small等）を正しく使い、意味のないdiv爆弾を禁止すること。
-- スクリーンリーダー対応：アイコンのみのリンクには必ず `aria-label` または `visually-hidden` テキストを付与すること。
-- キーボード操作：リンクやボタンには `:hover` だけでなく、視認性の高い `:focus-visible`（アウトライン）を必ず定義すること。
+## 6. Semantic HTML & Accessibility (a11y / WCAG 2.1 AA)
+- Strictly follow BEM naming conventions (Block__Element--Modifier). Avoid nesting deeper than 3 levels in SCSS.
+- Use native HTML5 landmarks (`header`, `main`, `section`, `nav`, `footer`, `small`, `article`, `figure`) and avoid unsemantic `div` soup.
+- Screen Reader Support: Interactive icon-only controls must include `aria-label` or visually-hidden labels (`.visually-hidden`).
+- Keyboard Navigation: All interactive elements must provide visible, accessible `:focus-visible` outlines in addition to `:hover` states.
 
-## 7. 品質検査ルール
-- コード生成・修正後は、必ず裏で `npm run build` がエラーなく通ることを自律確認してから出力を完了すること。
+## 7. Quality Assurance
+- Ensure `npm run build` passes with zero errors before finalizing code outputs.
